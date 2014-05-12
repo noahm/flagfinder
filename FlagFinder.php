@@ -42,6 +42,11 @@ class FlagFinder {
 
 			// preprocess for search (reduces to lowercase roman alphabet)
 			$searchString = preg_replace('/[^a-z]+/i', '', mb_strtolower($country));
+
+			if (strlen($searchString) < 2) {
+				return '';
+			}
+
 			$closest = self::MAX_MATCH_DISTANCE + 1;
 			$match = '';
 
